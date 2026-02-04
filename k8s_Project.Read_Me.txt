@@ -1,0 +1,55 @@
+Step 1. 
+1. Create a ubuntu EC2 Machine with t2.medium and All tcp
+2. Java and Jenkins Installation:
+    sudo apt-get update
+    sud apt-get upgrade
+    sudo apt-get install default-jdk
+    java -version
+
+    https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+    /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
+
+    launch the Jenkins URLS in the browser:-
+    <ubuntu_ip_address>:8080
+
+    Get the Password from the path : /var/lib/jenkins/secrets/initialAdminPassword
+
+Step 2:
+    https://stackshare.io/stacks
+    github -> new repo
+    mkdir devfolder 
+    transfer 5 project files to devfolder
+    install git
+    git init
+    git add .
+    git commit -m "test commit 1"
+    clear
+    git log
+    git remote add origin https://github.com/vijay3639/k8s-project.git
+    git remote
+    git push kube-project master
+    Copy paste the 1st stage of JenkinsFile
+
+Step 3:
+    sudo apt install docker.io
+    https://stackoverflow.com/questions/11880070/how-to-run-a-script-as-root-in-jenkins
+    vi /etc/sudoers     ->    jenkins ALL=(ALL) NOPASSWD: ALL
+    exit
+    sudo su - root
+    edit the path of workspace in JenkinsFile
+    edit the dockerhub username JenkinsFile
+    http://13.201.58.29:8080/env-vars.html/
+    docker login
+    Run the Jenkinsfile with three stages
+
+Step 4:
+    Create k8s cluster docs
+    apt install awscli -y
+    add a webhook -> http://13.201.58.29:8080/github-webhook/
+    Jenkins add trigger & projectUrl
+
